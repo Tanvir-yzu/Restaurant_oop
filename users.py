@@ -187,7 +187,7 @@ def setup_admin():
     phone = input("Enter admin phone: ")
     email = input("Enter admin email: ")
     address = input("Enter admin address: ")
-    return Admin(name, phone, email, address)
+    return Admin(name=name, phone=phone, email=email, address=address)
 
 def admin_interface(admin: Admin, restaurant: Restaurant):
     while True:
@@ -205,7 +205,7 @@ def admin_interface(admin: Admin, restaurant: Restaurant):
             name = input("Enter item name: ")
             price = float(input("Enter item price: "))
             quantity = int(input("Enter item quantity: "))
-            admin.add_menu_item(restaurant, FoodItem(name, price, quantity))
+            admin.add_menu_item(restaurant, FoodItem(name=name, price=price, quantity=quantity))
         elif choice == '2':
             name = input("Enter item name to remove: ")
             admin.remove_menu_item(restaurant, name)
@@ -219,7 +219,7 @@ def admin_interface(admin: Admin, restaurant: Restaurant):
             salary = float(input("Enter employee salary: "))
             start_date = input("Enter employee start date (YYYY-MM-DD): ")
             department = input("Enter employee department: ")
-            new_employee = Employee(name, phone, email, address, salary, date.fromisoformat(start_date), department)
+            new_employee = Employee(name=name, phone=phone, email=email, address=address, salary=salary, data=date.fromisoformat(start_date), department=department)
             admin.add_employee(restaurant, new_employee)
         elif choice == '5':
             admin.view_employees(restaurant)
@@ -236,7 +236,7 @@ def customer_interface(restaurant: Restaurant):
     email = input("Please enter your email: ")
     address = input("Please enter your address: ")
 
-    customer = Customer(name, phone, email, address)
+    customer = Customer(name=name, phone=phone, email=email, address=address)
     
     while True:
         print("\nWhat would you like to do?")
